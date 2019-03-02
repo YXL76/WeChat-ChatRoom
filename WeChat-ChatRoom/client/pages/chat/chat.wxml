@@ -1,0 +1,29 @@
+<!-- pages/chat/chat.wxml -->
+
+<view class="chat-page">
+  <scroll-view class="chat-container" scroll-y="true" scroll-top="{{scrollTop}}" scroll-with-animation="true">
+    <view wx:for="{{messageList}}" wx:key>
+      <view wx:if="{{item.type == 'text'}}">
+        <view wx:if="{{item.avatarUrl == userInfo.avatarUrl}}" class="message user-message">
+          <image class="head head-left" src="{{item.avatarUrl}}"></image>
+          <view class="nickname">{{item.nickName}}：</view>
+          <view class="content user-content" style="margin-right: -{{item.nickName.length * 15}}rpx">{{item.content}}</view>
+        </view>
+        <view wx:else class="message other-message">
+          <image class="head head-right" src="{{item.avatarUrl}}"></image>
+          <view class="nickname">{{item.nickName}}：</view>
+          <view class="content other-content" style="margin-left: -{{item.nickName.length * 18}}rpx">{{item.content}}</view>
+        </view>
+      </view>
+      <view wx:if="{{item.type == 'system'}}" class="system-message">
+        {{item.content}}
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view class="input-panel" style="padding-bottom: {{inputHeight}}px">
+  <form>
+    <input type="text" value="{{message}}" class="send-input" bindinput="inputMessage" adjust-position="{{0}}" bindfocus="inputFocus" bindblur="inputBlur"></input>
+    <button class="send-button free-btn-bordernone" bindtap="sendMessage">发送</button>
+  </form>
+</view>

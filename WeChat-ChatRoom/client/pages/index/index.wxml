@@ -1,0 +1,2 @@
+<!--pages/index/index.wxml-->
+<button bindtap='in'>进入聊天室</button>
