@@ -35,7 +35,7 @@ Page({
       wx.onSocketClose(function (res) {
         console.log('close success')
       })
-    }, 1000)  
+    }, 1000)
   },
 
   connect: function () {

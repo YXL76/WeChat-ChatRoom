@@ -10,7 +10,7 @@
 
 ## 安装
 
-1. 启动server`文件夹中的`python`脚本
+1. 启动`server`文件夹中的`python`脚本
 
    ```
    python3 server.py
