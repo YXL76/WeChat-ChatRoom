@@ -19,6 +19,7 @@
         {{item.content}}
       </view>
     </view>
+    <view style="height: {{inputHeight}}px"></view>
   </scroll-view>
 </view>
 <view class="input-panel" style="padding-bottom: {{inputHeight}}px">
