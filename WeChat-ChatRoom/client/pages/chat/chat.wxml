@@ -1,7 +1,31 @@
 <!-- pages/chat/chat.wxml -->
 
 <view class="chat-page">
-  <scroll-view class="chat-container" scroll-y="true" scroll-top="{{scrollTop}}" scroll-with-animation="true">
+  <view class="setting-page" hidden="{{settingPage}}">
+    <view class="group-title">• 系统消息</view>
+    <view class="group-item">
+      <view class="weui-cell weui-cell_switch">
+        <view class="weui-cell__bd">进入消息</view>
+        <view class="weui-cell__ft">
+          <switch checked="{{system_in}}" color="#01b0f1" bindchange="changeIn"></switch>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_switch">
+        <view class="weui-cell__bd">退出消息</view>
+        <view class="weui-cell__ft">
+          <switch checked="{{system_out}}" color="#01b0f1" bindchange="changeOut"></switch>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_switch">
+        <view class="weui-cell__bd">人数消息</view>
+        <view class="weui-cell__ft">
+          <switch checked="{{system_num}}" color="#01b0f1" bindchange="changeNum"></switch>
+        </view>
+      </view>
+    </view>
+    <view class="warning">注意：在使用正常的情况下，请不要随意改动以下选项，以免造成未可知的后果</view>
+  </view>
+  <scroll-view class="chat-container" scroll-y="true" scroll-top="{{scrollTop}}" scroll-with-animation="true" hidden="{{messagePage}}">
     <view wx:for="{{messageList}}" wx:key>
       <view wx:if="{{item.type == 'text'}}">
         <view wx:if="{{item.avatarUrl == userInfo.avatarUrl}}" class="message user-message">
@@ -15,8 +39,14 @@
           <view class="content other-content" style="margin-left: -{{item.nickName.length * 18}}rpx">{{item.content}}</view>
         </view>
       </view>
-      <view wx:if="{{item.type == 'system'}}" class="system-message">
-        {{item.content}}
+      <view wx:elif="{{item.type == 'system'}}">
+        <view wx:if="{{system_num == true}}" class="system-message">{{item.content}}</view>
+      </view>
+      <view wx:elif="{{item.type == 'system_in'}}">
+        <view wx:if="{{system_in == true}}" class="system-message">{{item.content}}</view>
+      </view>
+      <view wx:else>
+        <view wx:if="{{system_out == true}}" class="system-message">{{item.content}}</view>
       </view>
     </view>
     <view style="height: {{inputHeight}}px"></view>
@@ -24,6 +54,9 @@
 </view>
 <view class="input-panel" style="padding-bottom: {{inputHeight}}px">
   <form>
+    <button class="send-button free-btn-bordernone" bindtap="changePage">
+      <image src="/images/setting.png" class="setting-icon"></image>
+    </button>
     <input type="text" value="{{message}}" class="send-input" bindinput="inputMessage" adjust-position="{{0}}" bindfocus="inputFocus" bindblur="inputBlur"></input>
     <button class="send-button free-btn-bordernone" bindtap="sendMessage">发送</button>
   </form>

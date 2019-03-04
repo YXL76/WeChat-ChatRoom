@@ -13,6 +13,31 @@
   right: 0;
 }
 
+.setting-page {
+  margin-top: 40rpx;
+  margin-left: 90rpx;
+  margin-right: 80rpx;
+}
+
+.group-title {
+  font-size: 46rpx;
+  font-weight: bold;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+
+.group-item {
+  font-size: 40rpx;
+  margin-left: 30rpx;
+}
+
+.warning {
+  color: red;
+  font-size: 26rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
 .chat-container {
   flex: 1;
   text-align: center;
@@ -85,6 +110,11 @@
   width: 100%;
 }
 
+.setting-icon {
+  height: 44rpx;
+  width: 44rpx;
+}
+
 .free-btn-bordernone::after {
   border: none;
 }
@@ -95,7 +125,7 @@
   background: white;
   box-sizing: border-box;
   position: relative;
-  width: 82%;
+  width: 64%;
   display: inline-block;
 }
 
@@ -106,6 +136,6 @@
   position: relative;
   height: 80rpx;
   width: 18%;
-  font-size: 36rpx;
+  font-size: 38rpx;
   bottom: -3rpx;
 }
