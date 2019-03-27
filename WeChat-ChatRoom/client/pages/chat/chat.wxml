@@ -1,6 +1,6 @@
 <!-- pages/chat/chat.wxml -->
 
-<view class="chat-page">
+<view class="chat-page" style="background-color: #{{bg_color}};">
   <view class="setting-page" hidden="{{settingPage}}">
     <view class="group-title">• 系统消息</view>
     <view class="group-item">
@@ -24,19 +24,84 @@
       </view>
     </view>
     <view class="warning">注意：在使用正常的情况下，请不要随意改动以下选项，以免造成未可知的后果</view>
+    <view class="weui-cell weui-cell_switch">
+      <view class="weui-cell__bd">匿名</view>
+      <view class="weui-cell__ft">
+        <switch checked="{{anonymous}}" color="#01b0f1" bindchange="changeAno"></switch>
+      </view>
+    </view>
+    <view class="group-title">• 颜色主题(RGB)</view>
+    <view class="group-item">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">背景</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input input-color" placeholder="默认F2F3F5" value="{{bg_color}}" bindblur="changeBC" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">用户聊天框</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input input-color" value="{{user_bg_color}}" bindblur="changeUBC" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">用户文字</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input input-color" value="{{user_font_color}}" bindblur="changeUFC" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">他人聊天框</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input input-color" value="{{other_bg_color}}" bindblur="changeOBC" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">他人文字</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input input-color" value="{{other_font_color}}" bindblur="changeOFC" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">文字大小</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input input-color" value="{{font_size}}" bindblur="changeFS" />
+        </view>
+      </view>
+    </view>
   </view>
   <scroll-view class="chat-container" scroll-y="true" scroll-top="{{scrollTop}}" scroll-with-animation="true" hidden="{{messagePage}}">
     <view wx:for="{{messageList}}" wx:key>
       <view wx:if="{{item.type == 'text'}}">
-        <view wx:if="{{item.avatarUrl == userInfo.avatarUrl}}" class="message user-message">
-          <image class="head head-left" src="{{item.avatarUrl}}"></image>
-          <view class="nickname">{{item.nickName}}：</view>
-          <view class="content user-content" style="margin-right: -{{item.nickName.length * 15}}rpx">{{item.content}}</view>
+        <view wx:if="{{item.avatarUrl == userInfo.avatarUrl}}">
+          <view class="message user-message">
+            <image class="head head-left" src="{{item.avatarUrl}}"></image>
+            <view class="nickname">{{item.nickName}}：</view>
+          </view>
+          <view class="content user-message" style="font-size: {{font_size}}rpx;">
+            <text class="text" style="background-color: #{{user_bg_color}}; color: #{{user_font_color}};">{{item.content}}</text>
+          </view>
         </view>
-        <view wx:else class="message other-message">
-          <image class="head head-right" src="{{item.avatarUrl}}"></image>
-          <view class="nickname">{{item.nickName}}：</view>
-          <view class="content other-content" style="margin-left: -{{item.nickName.length * 18}}rpx">{{item.content}}</view>
+        <view wx:else>
+          <view class="message other-message">
+            <image class="head head-right" src="{{item.avatarUrl}}"></image>
+            <view class="nickname">{{item.nickName}}：</view>
+          </view>
+          <view class="content other-message" style="font-size: {{font_size}}rpx;">
+            <text class="text" style="background-color: #{{other_bg_color}}; color: #{{other_font_color}};">{{item.content}}</text>
+          </view>
         </view>
       </view>
       <view wx:elif="{{item.type == 'system'}}">

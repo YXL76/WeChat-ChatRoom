@@ -1,7 +1,6 @@
 /* pages/chat/chat.wxss */
 
 .chat-page {
-  background: #f2f3f5;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -36,6 +35,10 @@
   font-size: 26rpx;
   margin-top: 20rpx;
   margin-bottom: 20rpx;
+}
+
+.input-color {
+  margin-left: 100rpx;
 }
 
 .chat-container {
@@ -83,24 +86,23 @@
 }
 
 .content {
-  border-radius: 20rpx;
-  font-size: 32rpx;
+  display: flex;
+  position: relative;
   letter-spacing: 3rpx;
   line-height: 50rpx;
-  margin-top: 50rpx;
-  max-width: 65%;
-  padding: 16rpx;
+  margin-top: -30rpx;
+  left: 63px;
+  width: 65%;
+  overflow: hidden;
+  flex-wrap: warp;
+  white-space: pre-wrap;
   word-break: break-all;
 }
 
-.user-content {
-  background-color: #0188fb;
-  color: white;
-}
-
-.other-content {
-  background-color: white;
-  color: black;
+.text {
+  border-radius: 20rpx;
+  padding: 16rpx;
+  text-align: left;
 }
 
 .input-panel {
