@@ -1,7 +1,11 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/chat/chat"
+    "pages/chat/chat",
+    "pages/chat/chatLQ/chatLQ",
+    "pages/chat/chatHQ/chatHQ",
+    "pages/chat/chatHistory/chatHistory",
+    "pages/chat/chatSetting/chatSetting"
   ],
   "window": {
     "backgroundTextStyle": "light",

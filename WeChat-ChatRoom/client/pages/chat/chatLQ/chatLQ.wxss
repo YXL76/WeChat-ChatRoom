@@ -1,0 +1,17 @@
+/* pages/chat/chatLQ/chatLQ.wxss */
+
+@import "../chat.wxss";
+
+.content {
+    font-size: 32rpx;
+}
+
+.user-text {
+    background-color: #0188FB;
+    color: #FFFFFF;
+}
+
+.other-text {
+    background-color: #FFFFFF;
+    color: #000000;
+}

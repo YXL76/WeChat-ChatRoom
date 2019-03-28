@@ -1,0 +1,3 @@
+/* pages/chat/chatSeeting/chatSeeting.wxss */
+
+@import "../chat.wxss";

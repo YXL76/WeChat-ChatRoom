@@ -1,0 +1,21 @@
+/* pages/chat/chatHistory/chatHistory.wxss */
+
+@import "../chat.wxss";
+
+.chat-page {
+    padding-bottom: 4%;
+}
+
+.content {
+    font-size: 32rpx;
+}
+
+.user-text {
+    background-color: #0188FB;
+    color: #FFFFFF;
+}
+
+.other-text {
+    background-color: #FFFFFF;
+    color: #000000;
+}

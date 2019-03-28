@@ -1,0 +1,3 @@
+/* pages/chat/chatHQ/chatHQ.wxss */
+
+@import "../chat.wxss";

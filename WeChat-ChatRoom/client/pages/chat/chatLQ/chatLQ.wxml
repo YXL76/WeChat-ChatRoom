@@ -1,0 +1,48 @@
+<!-- pages/chat/chatLQ/chatLQ.wxml -->
+<view class="chat-page">
+  <scroll-view class="chat-container" scroll-y="true" scroll-top="{{scrollTop}}" scroll-with-animation="true">
+    <view wx:for="{{messageList}}" wx:key>
+      <view wx:if="{{item.type == 'text'}}">
+        <view wx:if="{{item.avatarUrl == userInfo.avatarUrl}}">
+          <view class="message user-message">
+            <image class="head head-left hvr-buzz-out" src="{{item.avatarUrl}}"></image>
+            <view class="nickname">{{item.nickName}}：</view>
+          </view>
+          <view class="content user-message">
+            <text class="text user-text">{{item.content}}</text>
+          </view>
+        </view>
+        <view wx:else>
+          <view class="message other-message">
+            <image class="head head-right hvr-buzz-out" src="{{item.avatarUrl}}"></image>
+            <view class="nickname">{{item.nickName}}：</view>
+          </view>
+          <view class="content other-message">
+            <text class="text other-text">{{item.content}}</text>
+          </view>
+        </view>
+      </view>
+      <view wx:elif="{{item.type == 'system'}}">
+        <view wx:if="{{system_num == true}}" class="system-message">{{item.content}}</view>
+      </view>
+      <view wx:elif="{{item.type == 'system_in'}}">
+        <view wx:if="{{system_in == true}}" class="system-message">{{item.content}}</view>
+      </view>
+      <view wx:else>
+        <view wx:if="{{system_out == true}}" class="system-message">{{item.content}}</view>
+      </view>
+    </view>
+    <view style="height: {{inputHeight}}px"></view>
+  </scroll-view>
+</view>
+<view class="input-panel" style="bottom: {{inputHeight}}px">
+  <form>
+    <button class="send-button free-btn-bordernone" bindtap="toSetting">
+      <image src="/images/setting.svg" class="setting-icon"></image>
+    </button>
+    <button class="send-button free-btn-bordernone" bindtap="toHistory">
+      <image src="/images/history.svg" class="setting-icon"></image>
+    </button>
+    <input type="text" value="{{message}}" class="send-input" bindinput="inputMessage" confirm-hold adjust-position="{{0}}" confirm-type="send" bindconfirm="sendMessage" bindfocus="inputFocus" bindblur="inputBlur"></input>
+  </form>
+</view>
