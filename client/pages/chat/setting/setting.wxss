@@ -1,0 +1,107 @@
+/* pages/chat/setting/setting.wxss */
+
+.container.setting {
+    padding: 32rpx 0;
+}
+
+.cell {
+    height: 80rpx;
+}
+
+.cell.Black,
+.title.sub.Black {
+    color: #FFF;
+}
+
+.cell.themes {
+    height: auto;
+}
+
+.cell.title {
+    width: 92vw;
+    margin-top: 16rpx;
+    padding-left: 8vw;
+    font-size: 42rpx;
+    font-weight: bold;
+    border-bottom: 3rpx solid #EEE;
+}
+
+.theme {
+    box-sizing: border-box;
+    border: 4rpx solid #FFF;
+    width: 86rpx;
+    height: 100rpx;
+    border-radius: 20rpx;
+    margin-right: 24rpx;
+    margin-top: 8rpx;
+    margin-bottom: 8rpx;
+}
+
+.theme.Grey {
+    background-color: #F5F5F5;
+}
+
+.theme.Blue-Gray {
+    background-color: #CFD8DC;
+}
+
+.theme.White {
+    border: 4rpx solid #F5F5F5;
+    background-color: #FFF;
+}
+
+.theme.Black {
+    background-color: #000;
+}
+
+.theme.Red {
+    background-color: #EF5350;
+}
+
+.theme.Pink {
+    background-color: #F06292;
+}
+
+.theme.Purple {
+    background-color: #AB47BC;
+}
+
+.theme.Teal {
+    background-color: #4DB6AC;
+}
+
+.theme.Light-Green {
+    background-color: #AED581;
+}
+
+.theme.Yellow {
+    background-color: #FFF176;
+}
+
+.theme.Brown {
+    background-color: #A1887F;
+}
+
+.theme.active {
+    border: 4rpx solid #03A9F4;
+}
+
+.cell.sub {
+    width: 76vw;
+    padding-left: 16vw;
+    padding-right: 8vw;
+    font-size: 36rpx;
+}
+
+.title.sub {
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+}
+
+.cell.sub>input {
+    text-align: right;
+}
+
+.cell.sub>input.Black {
+    color: #FFF;
+}

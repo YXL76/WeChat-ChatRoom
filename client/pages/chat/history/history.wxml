@@ -1,4 +1,4 @@
-<!-- pages/chat/chat.wxml -->
+<!-- pages/chat/history/history.wxml -->
 <view class="container {{ theme }} flex flex-column align-center">
     <block wx:for="{{ messageList }}" wx:key="unique">
         <block wx:if="{{ item.type === 'text' }}">
@@ -14,23 +14,9 @@
                 </view>
             </view>
         </block>
-        <block wx:elif="{{ item.type === 'system' && systemNum }}">
-            <view class="system">{{ item.content }}</view>
-        </block>
-        <block wx:elif="{{ item.type === 'systemIn' && systemIn }}">
-            <view class="system">{{ item.content }}</view>
-        </block>
-        <block wx:elif="{{ item.type === 'systemOut' && systemOut }}">
+        <block wx:else>
             <view class="system">{{ item.content }}</view>
         </block>
     </block>
     <view style="height: 108rpx"></view>
-</view>
-<view class="input-panel flex flex-row align-center space-around">
-    <view class="iconfont iconshezhi icon {{ theme }}" bindtap="toSetting" />
-    <view class="iconfont iconshijian icon {{ theme }}" bindtap="toHistory" />
-    <view class="input-container">
-        <input class="input {{ theme }}" value="{{ message }}" confirm-type="send" bindinput="inputMessage" bindconfirm="sendMessage" />
-    </view>
-    <view class="send {{ theme }}" bindtap="sendMessage">发送</view>
 </view>

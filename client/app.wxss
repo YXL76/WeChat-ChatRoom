@@ -1,3 +1,89 @@
 /**app.wxss**/
 
-@import "./weui.wxss";
+@font-face {
+    font-family: "iconfont";
+    src: url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAANsAAsAAAAAB4QAAAMfAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCCfgqCcIJFATYCJAMMCwgABCAFhG0HOhuHBhHVm0vIfhzGjulk3OvMR+2aJkOU6j8HAdmRs7f3IsoQ6F5mFbgCuweTVABva9NXXUZFKJbkPK2e/kd+LCCkMwB8nsvpXcMmhvMD5TTH4qNegHFAge2JURYFXCAJesPYBS3xNgRgiCvBiAWLVmxAHxVzkQDEiaOH96KfcaA2tAv0EehW7FQRReigr2QrjxAUBt8XbxiEPijoSMyVaw4tPMCc5+K5IpO0pB0egXI6H8D2gQSCARXEpsrAGmRUCEZiqBZUvGFbkwQ8VzSN58JTbPYPDxQECF3MVmMA/GFRgefCUSQqqLrimyQAuoAecBooxmRZc7pENTa2tLc3Ntg8krp5NH/jcMqGobxNw/mYn7ppJO+9U/aL5NrcajYYdbYntRka5th2HDe5cD9ga3eS/5aue9HGFx8EbutJDtre+3BuWZv1lrIkm63l7UYmuZ122yuTbbdVdNhuuTPi2Tq6+PawR9PQuku3km/mXE+6MbQxNmW9zUuJW6+Ni4i418Su39h1+oj7qSNHT7sfPXXqqPvpo0dOufslX7H84XnXgo4+4jwTLW6aXTbmqBZeaFyhazzXrS8knETjyowMZhNNPw7EB/Z4N1gZNA83H8TdAx+rh55t2GBq6pie4cT7cO1ijWcPANq47JXBMP1H9sv/8huazvsl7Dab8U3fSAVgIqbvGYxr4yrdm9BHAab8C8qOPaqmNp1SVRSOwghKFqZiKABlPIyGGbHkyXCLzd2WBPrYJFDQwwUSfbxJlRkMHYyIhi76zIYhQSzeb4QV55AI1QAIJB1AYM4gFEy5BYk5j0mVOQ0dbHkHXcyFhCGbhNWJRrC+IpzmE0pGA+oHQc/V2m4+he1XdK8sKa0OBE+kLaShb7p8+YwVaYo129sNzBYszQUmcB/mPMNCc0TNjWdexra1VU9q9FzEifmEktEA6gcEPVfrDeZT4fNXdK8sqYFSlX4ibWF0oKeh60CeDbUT5VYe2d5ugNkCluYCTMCH2SrMwFI9LaLmBj8gt4y0qJ/tamiWN5X3OwQYYq6WQhFSqOid9yEGWXdBHf59EAIA') format('woff2');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.iconfont.iconshijian:before {
+    content: "\e602";
+}
+
+.iconfont.iconshezhi:before {
+    content: "\e601";
+}
+
+
+.container {
+    background-color: #F5F5F5;
+    min-height: 100vh;
+}
+
+.container.Grey {
+    background-color: #F5F5F5;
+}
+
+.container.Blue-Gray {
+    background-color: #CFD8DC;
+}
+
+.container.White {
+    background-color: #FFF;
+}
+
+.container.Black {
+    background-color: #000;
+}
+
+.flex {
+    display: -webkit-box;
+    display: flex;
+}
+
+.flex.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex.flex-row {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+}
+
+.flex.flex-row-reverse {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: reverse;
+    flex-direction: row-reverse;
+}
+
+.flex.flex-column {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+}
+
+.flex.align-center {
+    -webkit-box-align: center;
+    align-items: center;
+}
+
+.flex.align-start {
+    -webkit-box-align: start;
+    align-items: flex-start;
+}
+
+.flex.align-end {
+    -webkit-box-align: end;
+    align-items: flex-end;
+}
+
+.flex.space-around {
+    justify-content: space-around;
+}

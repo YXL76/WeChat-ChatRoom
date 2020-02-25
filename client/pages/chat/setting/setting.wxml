@@ -1,0 +1,24 @@
+<!-- pages/chat/setting/setting.wxml -->
+<wxs src="./setting.wxs" module="color" />
+<view class="container setting {{ settings.theme }}">
+    <view class="cell title {{ settings.theme }}">主题</view>
+    <view class="cell sub themes flex flex-row flex-wrap">
+        <block wx:for="{{ themes }}" wx:key="unique">
+            <view id="{{ item }}" class="theme {{ item }} {{ item === settings.theme ? 'active' : '' }}" bindtap="changeTheme"></view>
+        </block>
+    </view>
+    <block wx:for="{{ options }}" wx:key="unique">
+        <view class="cell title {{ settings.theme }}">{{ item.title }}</view>
+        <block wx:for="{{ item.subOptions }}" wx:key="unique">
+            <view class="cell sub flex flex-row space-around align-center">
+                <view class="title sub {{ settings.theme }}">{{ item.title }}</view>
+                <block wx:if="{{ item.type === 'switch' }}">
+                    <switch id="{{ item.id }}" checked="{{ settings[item.id] }}" color="{{ color.color(settings.theme) }}" bindchange="changeSetting" />
+                </block>
+                <block wx:elif="{{ item.type === 'input' }}">
+                    <input id="{{ item.id }}" class="{{ settings.theme }}" maxlength="16" value="{{ settings[item.id] }}" bindinput="changeSetting" />
+                </block>
+            </view>
+        </block>
+    </block>
+</view>
