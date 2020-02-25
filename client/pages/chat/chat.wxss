@@ -6,15 +6,14 @@
 
 .message,
 .system {
-    margin: 8rpx 0;
+    margin: 10rpx 0;
 }
 
 .avatar {
-    height: 90rpx;
-    width: 90rpx;
+    height: 84rpx;
+    width: 84rpx;
     border-radius: 50%;
-    margin-left: 16rpx;
-    margin-right: 28rpx;
+    margin: 0 24rpx;
 }
 
 .nickname {
@@ -57,11 +56,26 @@
     right: 0;
     bottom: 0;
     height: 100rpx;
+    background-color: #F5F5F5;
+}
+
+.input-panel.Grey {
+    background-color: #F5F5F5;
+}
+
+.input-panel.Blue-Gray {
+    background-color: #CFD8DC;
+}
+
+.input-panel.White {
+    background-color: #FFF;
+}
+
+.input-panel.Black {
+    background-color: #000;
 }
 
 .icon {
-    height: 50rpx;
-    width: 50rpx;
     font-size: 54rpx;
     font-weight: bold;
     color: #4FC3F7;

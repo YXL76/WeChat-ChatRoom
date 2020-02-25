@@ -25,10 +25,6 @@ Component({
         key: "theme",
         success(res) { that.setData({ theme: res.data }) }
       })
-    },
-
-    ready: function () {
-      wx.pageScrollTo({ scrollTop: 100000, duration: 300 })
     }
   }
 })
