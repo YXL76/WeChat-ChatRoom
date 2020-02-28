@@ -1,0 +1,15 @@
+var color = function (theme) {
+  if (theme === 'Grey') return '#03A9F4'
+  else if (theme === 'Blue-Gray') return '#607D8B'
+  else if (theme === 'White') return '#03A9F4'
+  else if (theme === 'Black') return '#9E9E9E'
+  else if (theme === 'Red') return '#EF5350'
+  else if (theme === 'Pink') return '#F06292'
+  else if (theme === 'Purple') return '#AB47BC'
+  else if (theme === 'Teal') return '#4DB6AC'
+  else if (theme === 'Light-Green') return '#AED581'
+  else if (theme === 'Yellow') return '#FFF176'
+  else if (theme === 'Brown') return '#A1887F'
+}
+
+module.exports.color = color

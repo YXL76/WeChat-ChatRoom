@@ -1,0 +1,61 @@
+<template>
+  <view class="container {{ theme }} flex flex-column align-center">
+    <block wx:for="{{ messageList }}" wx:key="unique">
+      <block wx:if="{{ item.type === 'text' }}">
+        <view class="message flex {{ item.avatarUrl === userInfo.avatarUrl ? 'flex-row-reverse' : 'flex-row' }}">
+          <image class="avatar" src="{{ item.avatarUrl }}" />
+          <view class="flex flex-column {{ item.avatarUrl === userInfo.avatarUrl ? 'align-end' : 'align-start' }}">
+            <view>
+              <text class="nickname {{ theme }}">{{ item.nickName }}</text>
+            </view>
+            <view class="content {{ theme }} {{ item.avatarUrl === userInfo.avatarUrl ? 'user' : 'other' }}">
+              {{ item.content }}
+            </view>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view class="system">{{ item.content }}</view>
+      </block>
+    </block>
+    <view style="height: 108rpx"></view>
+  </view>
+</template>
+
+<script>
+import { createPage } from '@mpxjs/core'
+
+const app = getApp()
+
+createPage({
+
+  data: {
+    theme: '',
+    messageList: [],
+    userInfo: {}
+  },
+
+  attached () {
+    const that = this
+    that.setData({ userInfo: app.globalData.userInfo })
+    wx.getStorage({
+      key: 'chatHistory',
+      success (res) {
+        that.setData({ messageList: res.data })
+      }
+    })
+    wx.getStorage({
+      key: 'theme',
+      success (res) { that.setData({ theme: res.data }) }
+    })
+  }
+})
+</script>
+
+<style lang="scss" src="../chat.scss"></style>
+
+<script type="application/json">
+  {
+    "navigationBarTitleText": "聊天室 · 历史记录"
+  }
+</script>

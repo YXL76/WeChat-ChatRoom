@@ -1,0 +1,23 @@
+<script src="./app.js"></script>
+
+<script type="application/json">
+  {
+    "pages": [
+      "./pages/index/index",
+      "./pages/chat/chat/chat",
+      "./pages/chat/history/history",
+      "./pages/chat/setting/setting"
+    ],
+    "window": {
+      "backgroundTextStyle": "light",
+      "navigationBarBackgroundColor": "#fff",
+      "navigationBarTitleText": "WeChat",
+      "navigationBarTextStyle": "black"
+    },
+    "useExtendedLib": {
+      "kbone": false,
+      "weui": true
+    },
+    "style": "v2"
+  }
+</script>

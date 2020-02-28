@@ -1,3 +1,0 @@
-<!-- pages/index/index.wxml -->
-<button open-type="getUserInfo" bindgetuserinfo='get'>获取用户信息</button>
-<button bindtap='in' disabled="{{notGet}}">进入聊天室</button>
