@@ -68,7 +68,7 @@
     "typescript": "3.9.7",
     "url-loader": "4.1.0",
     "vue-loader": "15.9.3",
-    "vue-router": "3.4.2",
+    "vue-router": "3.4.3",
     "vue-template-compiler": "2.6.11",
     "webpack": "4.44.1",
     "webpack-bundle-analyzer": "3.8.0",
