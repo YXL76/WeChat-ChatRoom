@@ -27,7 +27,7 @@
     "@mpxjs/core": "^2.5.13"
   },
   "devDependencies": {
-    "@mpxjs/webpack-plugin": "2.6.27",
+    "@mpxjs/webpack-plugin": "2.6.28",
     "babel-core": "6.26.3",
     "babel-eslint": "10.1.0",
     "babel-loader": "8.1.0",
