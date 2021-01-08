@@ -1,0 +1,20 @@
+{
+  "presets": [
+    [
+      "@babel/env",
+      {
+        "modules": false,
+        "shippedProposals": true,
+        "targets": "ios >= 8, chrome >= 53"
+      }
+    ]
+  ],
+  "plugins": [
+    [
+      "@babel/transform-runtime",
+      {
+        "corejs": 3
+      }
+    ]
+  ]
+}

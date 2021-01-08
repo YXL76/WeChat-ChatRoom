@@ -12,7 +12,7 @@
 
 1. 启动`server`文件夹中的`python`脚本
 
-   ``` python
+   ```python
    python3 server.py
    ```
 
@@ -32,7 +32,7 @@
 
 2020-02-25 &nbsp;&nbsp;&nbsp;&nbsp; v2.0
 
-- 所有布局用flexbox重写，更新了样式使其更符合现代应用的审美。
+- 所有布局用 flexbox 重写，更新了样式使其更符合现代应用的审美。
 
 - 解决了用户开启匿名后还会发送系统消息的问题。
 
