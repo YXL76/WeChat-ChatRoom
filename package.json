@@ -6,14 +6,23 @@
     "ios >= 9",
     "chrome >= 47"
   ],
-  "scripts": {},
+  "scripts": {
+    "build": "webpack --mode production --progress",
+    "build:dev": "webpack --progress",
+    "build:prod": "yarn generate:css && yarn build",
+    "generate:css": "postcss src/tailwind.css -o src/app.css --config config",
+    "lint": "eslint --ext .js,.mpx .",
+    "server": "node src/server.js",
+    "watch": "webpack -w -d --progress",
+    "watch:prod": "webpack --mode production -w -d --progress"
+  },
   "author": "YXL <chenxin.lan.76@gmail.com>",
   "dependencies": {
     "@mpxjs/core": "2.6.44",
     "@vant/weapp": "1.6.4",
-    "socket.io": "3.0.5",
     "vue": "2.6.12",
-    "vue-i18n": "8.22.3"
+    "vue-i18n": "8.22.3",
+    "ws": "7.4.2"
   },
   "devDependencies": {
     "@babel/core": "7.12.10",

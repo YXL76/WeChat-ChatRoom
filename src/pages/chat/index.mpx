@@ -1,0 +1,62 @@
+<template>
+  <view class="flex flex-col items-center">
+    <block wx:for="{{ messageList }}" wx:key="index">
+      <block wx:if="{{ item.type === 'text' }}">
+        <view
+          class="w-screen my-1 flex {{ item.avatarUrl === userInfo.avatarUrl ? 'flex-row-reverse' : 'flex-row' }}"
+        >
+          <image class="h-10 w-10 rounded-full mx-3 shadow" src="{{ item.avatarUrl }}" />
+          <view
+            class="flex flex-col {{ item.avatarUrl === userInfo.avatarUrl ? 'items-end' : 'items-start' }}"
+          >
+            <view>
+              <text class="nickname mb-2 text-sm">{{ item.nickName }}</text>
+            </view>
+            <view
+              class="max-w-3_5-screen text-base py-1 px-2 mt-1 rounded-xl break-all break-words shadow {{ item.avatarUrl === userInfo.avatarUrl ? 'text-white bg-blue-400' : 'text-black bg-white' }}"
+            >{{ item.content }}</view>
+          </view>
+        </view>
+      </block>
+      <block wx:else>
+        <view
+          class="my-1 inline text-white text-sm px-1 rounded-md"
+          style="background-color: rgba(0, 0, 0, 0.4);"
+        >
+          <block wx:if="{{ item.type === 'system' && settings.systemNum }}">{{ item.content }}</block>
+          <block wx:elif="{{ item.type === 'systemIn' && settings.systemIn }}">{{ item.content }}</block>
+          <block wx:elif="{{ item.type === 'systemOut' && settings.systemOut }}">{{ item.content }}</block>
+        </view>
+      </block>
+    </block>
+    <view style="height: 108rpx"></view>
+  </view>
+  <view class="fixed inset-x-0 bottom-0 bg-white h-12 flex flex-row items-center justify-around">
+    <van-icon name="setting" size="25px" color="#60A5FA" bind:click="toSetting" />
+    <van-icon name="chat" size="27px" color="#60A5FA" bind:click="toHistory" />
+    <view class="w-3_5-screen rounded-xl overflow-hidden transition-shadow" hover-class="shadow-md">
+      <input
+        class="w-3_5-screen box-border block h-8 px-2 bg-gray-100"
+        wx:model="{{ message }}"
+        confirm-type="send"
+        bindconfirm="sendMessage"
+      />
+    </view>
+    <view
+      class="text-white text-center text-sm px-1 rounded-lg py-1 bg-blue-400 transition-shadow"
+      bindtap="sendMessage"
+      hover-class="shadow-md"
+    >发送</view>
+  </view>
+</template>
+
+<script lang="ts", src="./index.ts"></script>
+
+<script type="application/json">
+{
+  "navigationBarTitleText": "聊天室",
+  "usingComponents": {
+    "van-icon": "@vant/weapp/dist/icon/index",
+  }
+}
+</script>

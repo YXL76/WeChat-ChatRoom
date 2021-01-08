@@ -4,21 +4,19 @@ const MpxWebpackPlugin = require("@mpxjs/webpack-plugin");
 const path = require("path");
 const rm = require("rimraf");
 
-const basePath = process.cwd();
-
 const mode = "wx";
 const srcMode = "wx";
 
-function resolve() {
-  return path.resolve(basePath, ...arguments);
+function resolveRoot() {
+  return path.resolve(__dirname, ...arguments);
+}
+
+function resolveSrc() {
+  return path.resolve(__dirname, "src", ...arguments);
 }
 
 function resolveDist() {
-  return path.resolve(basePath, "dist", mode, ...arguments);
-}
-
-function resolveShared() {
-  return path.resolve(__dirname, ...arguments);
+  return path.resolve(__dirname, "dist", mode, ...arguments);
 }
 
 try {
@@ -46,7 +44,7 @@ module.exports = (_, options) => ({
     hints: false,
   },
   entry: {
-    app: resolve("app.mpx"),
+    app: resolveSrc("app.mpx"),
   },
   output: {
     // 和 webpack 配置一致,编译后文件输出的路径
@@ -84,13 +82,13 @@ module.exports = (_, options) => ({
         use: {
           loader: "babel-loader",
           options: {
-            configFile: resolveShared("babel.config.json"),
+            configFile: resolveRoot("babel.config.json"),
           },
         },
         // include 和 exclude 定义哪些 .js 文件走 babel 编译，哪些不走 babel 编译，配置include、exclude 可以提高查找效率
-        include: [resolve(), resolveShared("node_modules", "@mpxjs")],
+        include: [resolveSrc(), resolveRoot("node_modules", "@mpxjs")],
         exclude: [
-          resolveShared("node_modules", "**", "src", "third_party", "**"),
+          resolveRoot("node_modules", "**", "src", "third_party", "**"),
         ],
       },
       {
@@ -119,13 +117,13 @@ module.exports = (_, options) => ({
           {
             loader: "babel-loader",
             options: {
-              configFile: resolveShared("babel.config.json"),
+              configFile: resolveRoot("babel.config.json"),
             },
           },
           {
             loader: "ts-loader",
             options: {
-              configFile: resolveShared("tsconfig.json"),
+              configFile: resolveRoot("tsconfig.json"),
             },
           },
         ],
@@ -145,13 +143,12 @@ module.exports = (_, options) => ({
       // projectRoot: resolve('src'), // 当resolveMode为native时可通过该字段指定项目根目录
       writeMode: "changed", // 可选值 full / changed，不传默认为change，当设置为changed时在watch模式下将只会对内容发生变化的文件进行写入，以提升小程序开发者工具编译性能
       defs: {}, // 定义一些全局环境变量，可在JS/模板/样式/JSON中使用
-      externals: ["weui"], // 目前仅支持微信小程序 weui 组件库通过 useExtendedLib 扩展库的方式引入，这种方式引入的组件将不会计入代码包大小。配置 externals 选项，Mpx 将不会解析 weui 组件的路径并打包
       // 是否转换px到rpx
       transRpxRules: [
         {
           mode: "only",
           comment: "use rpx",
-          include: resolve(),
+          include: resolveSrc(),
         },
       ],
       // i18n: {}, // 多语言i18n能力
@@ -160,7 +157,7 @@ module.exports = (_, options) => ({
     new CopyWebpackPlugin({
       patterns: [
         {
-          context: resolveShared("static", mode),
+          context: resolveRoot("static", mode),
           from: "**/*",
           to: resolveDist(),
         },

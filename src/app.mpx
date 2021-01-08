@@ -1,0 +1,22 @@
+<script lang="ts" src="./app.ts"></script>
+
+<script type="application/json">
+{
+  "pages": [
+    "./pages/index",
+    "./pages/chat/index",
+    "./pages/chat/history",
+    "./pages/chat/setting"
+  ],
+  "style": "v2",
+  "usingComponents": {},
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "聊天室"
+  }
+}
+</script>
+
+<style src="./app.css"></style>

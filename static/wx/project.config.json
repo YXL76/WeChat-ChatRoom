@@ -1,0 +1,19 @@
+{
+  "appid": "wxe366a7b309943a0e",
+  "compileType": "miniprogram",
+  "condition": {},
+  "description": "chatroom",
+  "projectname": "chatroom",
+  "setting": {
+    "autoAudits": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": false,
+    "enhance": false,
+    "es6": false,
+    "minified": false,
+    "minifyWXSS": false,
+    "newFeature": true,
+    "postcss": false,
+    "urlCheck": false
+  }
+}

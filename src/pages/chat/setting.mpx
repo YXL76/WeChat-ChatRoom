@@ -1,0 +1,35 @@
+<template>
+  <view class="my-4">
+    <block wx:for="{{ option }}" wx:key="index">
+      <view class="h-10 ml-6 mt-2 w-screen text-2xl font-bold">{{ item.title }}</view>
+      <block wx:for="{{ item.content }}" wx:key="index">
+        <view class="h-10 pl-16 pr-10 text-lg flex flex-row justify-around items-center">
+          <view class="flex-grow">{{ item.title }}</view>
+          <block wx:if="{{ item.type === 'switch' }}">
+            <switch
+              id="{{ item.id }}"
+              checked="{{ settings[item.id] }}"
+              bindchange="changeSetting"
+            />
+          </block>
+          <block wx:elif="{{ item.type === 'input' }}">
+            <input
+              id="{{ item.id }}"
+              class="text-right"
+              maxlength="16"
+              wx:model="{{ settings[item.id] }}"
+            />
+          </block>
+        </view>
+      </block>
+    </block>
+  </view>
+</template>
+
+<script lang="ts" src="./setting.ts"></script>
+
+<script type="application/json">
+{
+  "navigationBarTitleText": "设置"
+}
+</script>

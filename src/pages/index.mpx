@@ -1,0 +1,18 @@
+<template>
+  <view>
+    <block wx:if="{{ userInfo }}">
+      <button bindtap="enterRoom">进入聊天室</button>
+    </block>
+    <block wx:else>
+      <button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onUserInfo">授权登录</button>
+    </block>
+  </view>
+</template>
+
+<script lang="ts", src="./index.ts"></script>
+
+<script type="application/json">
+{
+  "usingComponents": {}
+}
+</script>
